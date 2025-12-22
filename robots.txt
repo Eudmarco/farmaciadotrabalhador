@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://farmaciadotrabalhadoripatinga.com.br/sitemap.xml
+Sitemap: https://farmatrabalhador.com.br/sitemap.xml
