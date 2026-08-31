@@ -165,27 +165,28 @@ const Header = memo(({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, setIs
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 font-medium text-gray-600">
-          <button onClick={() => scrollToSection('home')} className="hover:text-brand-red transition-colors">Início</button>
-          <button onClick={() => scrollToSection('about')} className="hover:text-brand-red transition-colors">Quem Somos</button>
-          <button onClick={() => scrollToSection('deals')} className="hover:text-brand-red transition-colors text-brand-red font-bold">Ofertas</button>
-          <button onClick={() => scrollToSection('services')} className="hover:text-brand-red transition-colors">Produtos</button>
-          <button onClick={() => scrollToSection('upload')} className="hover:text-brand-red transition-colors flex items-center gap-1">
+        <nav aria-label="Navegação Principal" className="hidden md:flex items-center gap-8 font-medium text-gray-600">
+          <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }} className="hover:text-brand-red transition-colors">Início</a>
+          <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }} className="hover:text-brand-red transition-colors">Quem Somos</a>
+          <a href="#deals" onClick={(e) => { e.preventDefault(); scrollToSection('deals'); }} className="hover:text-brand-red transition-colors text-brand-red font-bold">Ofertas</a>
+          <a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }} className="hover:text-brand-red transition-colors">Produtos</a>
+          <a href="#upload" onClick={(e) => { e.preventDefault(); scrollToSection('upload'); }} className="hover:text-brand-red transition-colors flex items-center gap-1">
              Enviar Receita
-          </button>
-          <button onClick={() => scrollToSection('contact')} className="hover:text-brand-red transition-colors">Contato</button>
+          </a>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="hover:text-brand-red transition-colors">Contato</a>
         </nav>
 
         {/* Actions */}
         <div className="flex items-center gap-4">
-          <a href="https://www.instagram.com/farmaciadotrabalhador_oficial" target="_blank" rel="noopener noreferrer" title="Siga-nos no Instagram" className="hidden md:block text-gray-500 hover:text-brand-red transition-colors">
+          <a href="https://www.instagram.com/farmaciadotrabalhador_oficial" target="_blank" rel="noopener noreferrer" aria-label="Siga-nos no Instagram" title="Siga-nos no Instagram" className="hidden md:block text-gray-500 hover:text-brand-red transition-colors">
               <Instagram size={24} />
           </a>
-          <a href="https://www.facebook.com/profile.php?id=61565382111600" target="_blank" rel="noopener noreferrer" title="Siga-nos no Facebook" className="hidden md:block text-gray-500 hover:text-brand-red transition-colors">
+          <a href="https://www.facebook.com/profile.php?id=61565382111600" target="_blank" rel="noopener noreferrer" aria-label="Siga-nos no Facebook" title="Siga-nos no Facebook" className="hidden md:block text-gray-500 hover:text-brand-red transition-colors">
               <Facebook size={24} />
           </a>
           <button 
             onClick={() => openWhatsApp("Olá, gostaria de fazer um pedido.")}
+            aria-label="Pedir no WhatsApp"
             className="hidden md:flex bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-bold items-center gap-2 transition-colors shadow-sm"
           >
             <MessageSquare size={18} />
@@ -193,6 +194,8 @@ const Header = memo(({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, setIs
           </button>
           <button 
             className="md:hidden p-2 text-gray-600"
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -202,14 +205,14 @@ const Header = memo(({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, setIs
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white border-t p-4 flex flex-col gap-4 shadow-lg absolute w-full z-40">
-          <button onClick={() => scrollToSection('home')} className="text-left font-medium py-2 border-b">Início</button>
-          <button onClick={() => scrollToSection('about')} className="text-left font-medium py-2 border-b">Quem Somos</button>
-          <button onClick={() => scrollToSection('deals')} className="text-left font-medium py-2 border-b text-brand-red">Ofertas</button>
-          <button onClick={() => scrollToSection('services')} className="text-left font-medium py-2 border-b">Produtos</button>
-          <button onClick={() => scrollToSection('upload')} className="text-left font-medium py-2 border-b text-brand-red">Enviar Receita</button>
-          <button onClick={() => scrollToSection('contact')} className="text-left font-medium py-2">Contato</button>
-        </div>
+        <nav aria-label="Menu Mobile" className="md:hidden bg-white border-t p-4 flex flex-col gap-4 shadow-lg absolute w-full z-40">
+          <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }} className="text-left font-medium py-2 border-b">Início</a>
+          <a href="#about" onClick={(e) => { e.preventDefault(); scrollToSection('about'); }} className="text-left font-medium py-2 border-b">Quem Somos</a>
+          <a href="#deals" onClick={(e) => { e.preventDefault(); scrollToSection('deals'); }} className="text-left font-medium py-2 border-b text-brand-red">Ofertas</a>
+          <a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services'); }} className="text-left font-medium py-2 border-b">Produtos</a>
+          <a href="#upload" onClick={(e) => { e.preventDefault(); scrollToSection('upload'); }} className="text-left font-medium py-2 border-b text-brand-red">Enviar Receita</a>
+          <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="text-left font-medium py-2">Contato</a>
+        </nav>
       )}
     </header>
   );
@@ -228,7 +231,7 @@ const Footer = memo(() => (
         </p>
       </div>
       <div>
-        <h4 className="font-semibold mb-4 text-brand-yellow">Contato Rápido</h4>
+        <h3 className="font-semibold mb-4 text-brand-yellow">Contato Rápido</h3>
         <ul className="space-y-3 text-sm text-gray-400">
           <li className="flex items-center gap-2"><Phone size={16} /> (31) 99781-2767</li>
           <li className="flex items-center gap-2 cursor-pointer hover:text-white" onClick={() => openWhatsApp()}>
@@ -241,15 +244,17 @@ const Footer = memo(() => (
         </ul>
       </div>
       <div>
-        <h4 className="font-semibold mb-4 text-brand-yellow">Horário de Funcionamento</h4>
+        <h3 className="font-semibold mb-4 text-brand-yellow">Horário de Funcionamento</h3>
         <div className="space-y-2">
-          <p className="text-sm text-gray-400 flex justify-between max-w-[200px]"><span>Seg - Sex:</span> <span className="text-white">08:00 - 21:00</span></p>
-          <p className="text-sm text-gray-400 flex justify-between max-w-[200px]"><span>Sábado:</span> <span className="text-white">08:00 - 20:00</span></p>
-          <p className="text-sm text-gray-400 flex justify-between max-w-[200px]"><span>Domingo:</span> <span className="text-white">08:00 - 13:00</span></p>
+          <p className="text-sm text-gray-400 flex justify-between max-w-[210px]"><span>Seg - Sáb:</span> <span className="text-white">07:00 - 22:00</span></p>
+          <p className="text-sm text-gray-400 flex justify-between max-w-[210px]"><span>Domingo:</span> <span className="text-white">08:00 - 13:00</span></p>
+          <div className="pt-2">
+            <p className="text-xs text-brand-yellow font-medium">Entregas (Seg - Sex): até as 22h</p>
+          </div>
         </div>
       </div>
       <div>
-        <h4 className="font-semibold mb-4 text-brand-yellow">Nossas Redes</h4>
+        <h3 className="font-semibold mb-4 text-brand-yellow">Nossas Redes</h3>
         <div className="flex items-center gap-4">
              <a href="https://www.instagram.com/farmaciadotrabalhador_oficial" target="_blank" rel="noopener noreferrer" title="Instagram" className="text-gray-400 hover:text-white transition-colors">
                 <Instagram size={28} />
@@ -292,9 +297,16 @@ const HeroSection = memo(() => (
             <Star size={16} fill="currentColor" /> Farmácia em Ipatinga
           </div>
         </FadeIn>
+
+        <FadeIn direction="left" delay={200}>
+          <div className="inline-flex items-center gap-2 bg-brand-yellow text-brand-dark px-5 py-2.5 rounded-full font-extrabold text-sm shadow-[0_4px_20px_rgba(255,209,0,0.4)] mt-4">
+            <Truck size={20} />
+            <span className="uppercase tracking-tight">Entregas de Seg a Sex até as 22h!</span>
+          </div>
+        </FadeIn>
         
         <FadeIn direction="left" delay={300}>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight shadow-black drop-shadow-lg">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight shadow-black drop-shadow-lg mt-4">
             Você Encontra Tudo Para <br/>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-yellow to-white">Sua Saúde e Bem-Estar.</span>
           </h1>
@@ -350,7 +362,8 @@ const HeroSection = memo(() => (
                 </div>
                 <div>
                   <p className="font-bold text-lg">Aberto Todos os Dias</p>
-                  <p className="text-sm opacity-90">Até às 21:00 (Seg-Sex)</p>
+                  <p className="text-sm opacity-90">Até as 22:00 (Seg-Sáb)</p>
+                  <p className="text-sm opacity-90">08:00 - 13:00 (Domingo)</p>
                 </div>
               </div>
            </div>
@@ -404,6 +417,7 @@ const DealsSection = memo(() => {
                      src={img}
                      alt={`Oferta Especial ${index + 1}`}
                      className="w-full h-auto object-contain bg-gray-100"
+                     loading="lazy"
                    />
                    {/* Hover Overlay */}
                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -414,7 +428,7 @@ const DealsSection = memo(() => {
                  </div>
                  <div className="mt-3 flex justify-between items-center px-2">
                     <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Oferta {index + 1}</span>
-                    <button className="text-brand-blue hover:text-brand-red transition-colors" title="Ampliar">
+                    <button className="text-brand-blue hover:text-brand-red transition-colors" aria-label="Ampliar oferta" title="Ampliar">
                       <ZoomIn size={20} />
                     </button>
                  </div>
@@ -445,6 +459,7 @@ const DealsSection = memo(() => {
           <div className="relative w-full max-w-4xl max-h-[90vh] flex flex-col items-center">
             <button 
               onClick={closeImage}
+              aria-label="Fechar ampliação"
               className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors bg-white/10 p-2 rounded-full"
             >
               <X size={32} />
@@ -667,7 +682,7 @@ const UploadSection = memo(() => {
                <div className="absolute top-0 right-0 p-12 opacity-10 transform translate-x-1/2 -translate-y-1/2">
                   <Upload size={200} />
                </div>
-               <h3 className="text-3xl font-bold mb-4 relative z-10">Envie sua Receita</h3>
+               <h2 className="text-3xl font-bold mb-4 relative z-10">Envie sua Receita</h2>
                <p className="mb-8 text-blue-100 relative z-10">
                  Não perca tempo na fila. Envie a foto da sua receita pelo WhatsApp e receba seu orçamento na hora.
                </p>
@@ -736,7 +751,7 @@ const TestimonialSection = memo(() => (
                 <p className="text-gray-600 italic mb-6">"{t.text}"</p>
               </div>
               <div>
-                <h4 className="font-bold text-gray-900">{t.name}</h4>
+                <h3 className="font-bold text-gray-900">{t.name}</h3>
                 <span className="text-xs text-brand-blue font-semibold uppercase tracking-wide">{t.role}</span>
               </div>
             </div>
@@ -877,6 +892,7 @@ export default function App() {
         {/* WhatsApp Floating Button (Most Prominent) */}
         <button 
           onClick={() => openWhatsApp()}
+          aria-label="Chamar no WhatsApp"
           className="bg-green-500 text-white p-4 rounded-full shadow-xl shadow-green-900/20 hover:bg-green-600 transition-all hover:scale-110 flex items-center justify-center border-2 border-white animate-bounce-slow"
           title="Chamar no WhatsApp"
         >

@@ -3,40 +3,34 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Sua saúde em primeiro lugar. Compre medicamentos, envie receitas e tire dúvidas com nosso assistente virtual inteligente." />
     <title>Farmácia do Trabalhador - Ipatinga</title>
+    <!-- Favicon -->
     <link rel="icon" type="image/avif" href="https://kjunynajewbtxqojxbok.supabase.co/storage/v1/object/public/FARMACIA%20DO%20TRABALHADOR/LOGO%20-%20Michael%20Michael.avif" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              brand: {
-                red: '#E60012', dark: '#1a1a1a', gray: '#f3f4f6',
-                blue: '#005CB9', yellow: '#FFD100', green: '#008F39'
-              }
-            },
-            fontFamily: { sans: ['Inter', 'sans-serif'] }
-          }
-        }
-      }
-    </script>
+    <!-- Preload LCP Image -->
+    <link rel="preload" as="image" href="https://kjunynajewbtxqojxbok.supabase.co/storage/v1/object/public/FARMACIA%20DO%20TRABALHADOR/LOGO%20-%20Michael%20Michael.avif" fetchpriority="high" />
+    <link rel="preload" as="image" href="https://kjunynajewbtxqojxbok.supabase.co/storage/v1/object/public/FARMACIA%20DO%20TRABALHADOR/Fachada%20da%20Loja.avif" fetchpriority="high" />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://aistudiocdn.com">
+    <link rel="dns-prefetch" href="https://kjunynajewbtxqojxbok.supabase.co">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-      body { font-family: 'Inter', sans-serif; }
-      .scrollbar-hide::-webkit-scrollbar { display: none; }
-      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-      @keyframes bounce-slow {
-        0%, 100% { transform: translateY(-10%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
-        50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
-      }
-      .animate-bounce-slow { animation: bounce-slow 2s infinite; }
-    </style>
-  </head>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0"
+  }
+}
+</script>
+</head>
   <body class="bg-gray-50 text-gray-900 antialiased">
     <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
-  </body>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>
